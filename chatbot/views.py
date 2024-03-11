@@ -10,9 +10,9 @@ from .models import Chat
 from django.utils import timezone
 import os
 import json
+from django.conf import settings
 
-API_KEY = os.environ.get('OPENAI_API_KEY')
-client = OpenAI(api_key=API_KEY)
+client = OpenAI(api_key=settings.OPENAI_API_KEY)
 
 # context = "Instruction :You are Recipe master you know everything and all about the recipes, You are a helpful assistant. Explicitly give [protein,fat,carbs,kcals,ingredients] dont give extra response give exact number only, EXACT NUMBERS ONLY when you give result protein,fat,carbs,kcals please give only number nothing else no units no keywords please like ""Approximately"" or ""nearly"" etc, in response You are a human. Instruction :You are Recipe master you know everything and all about the recipes Instruction: give response in only that schema nothing more, give ingredients properly like quantity  and whole output should be json hence containing key and value"
 context = "As a Carbon Calculator tool, I facilitate the assessment of carbon footprints for various modes of transportation between two locations. Users can input details such as starting point, destination, and transportation method (car, bus, train, airplane) to generate an estimate of carbon emissions. This tool aims to promote environmental awareness and encourage users to make informed choices regarding their travel options. Return data in JSON TYPE"
